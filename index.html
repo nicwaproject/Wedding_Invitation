@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <title>Wedding Invitation</title>
+    <meta property="og:title" content="Wedding Invitation">
+    <meta property="og:description" content="Zhapran & Fira's Wedding Invitation">
+    <meta property="og:image" content="gallery4.JPG"> <!-- Specify the URL of your preview image -->
+    <meta property="og:image:width" content="300"> <!-- Width of the image in pixels -->
+    <meta property="og:image:height" content="300"> <!-- Height of the image in pixels -->
+    <link rel="icon" href="NPLOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=La+Belle+Aurore&family=Marck+Script&family=Noto+Naskh+Arabic:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Updock&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=La+Belle+Aurore&family=Marck+Script&family=Noto+Naskh+Arabic:wght@400..700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Updock&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="invitationCover" class="invitation-cover">
+        <div class="cover-content">
+            <p class="couple" id="coupleNames"></p>
+            <p>Kepada Yth</p>
+            <p class="guest"><span id="guestName"></span></p>
+            <p class="invite-text">Kami mengundang anda untuk hadir di acara pernikahan kami</p>
+            <button id="openButton">Open Invitation</button>
+        </div>
+    </div>
+
+    <div id="invitationContent" class="invitation-content">
+        <div class="section fade-in" id="section1">
+            <h1 class="couple-name">Zhapran & Fira</h1>
+        </div>
+        <div class="section float-in" id="section2">
+            <div class="quran-verse">
+                <p class="verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+                <p class="translation">And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.</p>
+                <p class="surah">Surah Ar-Rum, 30:21</p>
+            </div>
+        </div>
+        <div class="section float-in" id="section3">
+            <div id="countdown">
+                <div class="unit">
+                    <span class="number" id="days"></span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="unit">
+                    <span class="number" id="hours"></span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="unit">
+                    <span class="number" id="minutes"></span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="unit">
+                    <span class="number" id="seconds"></span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+        <div class="section float-in" id="section4">
+            <div class="profile">
+                <img src="husband-image.JPG" alt="Husband Profile">
+                <div class="profile-info">
+                    <h3>Muhammad Riziq Zhapran, S. Ag</h3>
+                    <p>Putra dari Bapak Mulawarman & Ibu Nurul Hidayati</p>
+                    <a href="https://www.instagram.com/muhammad_riziq_zhapran?igsh=MTduajBrb2lraXA1bg%3D%3D&utm_source=qr" target="_blank" class="instagram-button">Instagram</a>
+                </div>
+            </div>
+            <div class="profile">
+                <img src="wife-image.JPG" alt="Wife Profile">
+                <div class="profile-info">
+                    <h3>Ghafira Maraini</h3>
+                    <p>Putri dari Bapak Marzuki & Ibu Nurhayati</p>
+                    <a href="https://www.instagram.com/ghafira_21?igsh=MW5oeXYycmZ5Zmh1MQ==" target="_blank" class="instagram-button">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="section float-in" id="section5">
+            <h2>Wedding Details</h2>
+            <div class="wedding-detail">
+                <div class="event">
+                    <h3>Akad</h3>
+                    <p><strong>Time:</strong> 09:00 AM</p>
+                    <p><strong>Location:</strong> BPSDMD NTB</p>
+                    <p>Jl Pemuda No 59</p>
+                    <a href="https://maps.app.goo.gl/oXRqjGdoSfvojTMR7" target="_blank" class="location-button">Check Location</a>
+                </div>
+                <div class="event">
+                    <h3>Resepsi</h3>
+                    <p><strong>Time:</strong> 10:00 AM</p>
+                    <p><strong>Location:</strong> BPSDMD NTB</p>
+                    <p>Jl Pemuda No 59</p>
+                    <a href="https://maps.app.goo.gl/oXRqjGdoSfvojTMR7" target="_blank" class="location-button">Check Location</a>
+                </div>
+            </div>
+        </div>
+        <div class="section float-in" id="section6">
+            <h2 class="gallery-title">Photo Gallery</h2>
+            <div class="gallery">
+                <img src="gallery1.JPG" alt="Gallery Photo 1">
+                <img src="gallery2.JPG" alt="Gallery Photo 2">
+                <img src="gallery3.JPG" alt="Gallery Photo 3">
+                <img src="gallery4.JPG" alt="Gallery Photo 4">
+                <!-- Add more photos as needed -->
+            </div>
+        </div>
+        <div class="section float-in" id="section7">
+            <h2>Send Message to the Couple</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="section float-in" id="gift">
+            <h2>Gift</h2>
+            <div class="gift-details">
+                <p>Bank Mandiri</p>
+                <p>Muhammad Riziq Zhapran</p>
+                <p class="bank-number">1610006114602</p>
+                <button onclick="copyAccountDetails()">Copy Bank Number</button>
+            </div>
+        </div>
+        
+        <div class="section float-in" id="section8">
+            <div class="thank-you">
+                <h2>Thank You!</h2>
+                <p>We appreciate your presence on our special day.</p>
+            </div>
+        </div>
+        
+        <div class="section float-in" id="section9">
+            <h2>Connect With Us</h2>
+            <div class="brand-logo">
+                <img src="nicwaprojectlogo.png" alt="Brand Logo">
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/yourpage" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/youraccount" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        
+    <div class="audio-controls">
+        <img id="playPauseButton" src="play.png" alt="Play" class="play-btn">
+    </div>
+</div>
+
+<audio id="backgroundMusic" src="a thousand year.mp3"></audio> <!-- Change this to the path of your music file -->
+    <script src="script.js"></script>
+</body>
+</html>
