@@ -108,14 +108,15 @@
                 <!-- Add more photos as needed -->
             </div>
         </div>
-        <div class="section float-in" id="section7">
-            <h2>Send Message to the Couple</h2>
-            <form id="whatsappForm">
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
+        <div class="container">
+        <h1>Message App</h1>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+        <div id="messages">
+            <h2>Messages</h2>
+            <ul id="messagesList"></ul>
         </div>
         <div class="section float-in" id="gift">
             <h2>Gift</h2>
