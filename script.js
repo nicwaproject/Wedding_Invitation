@@ -82,30 +82,40 @@ function isInViewport(element) {
 
 
 // SEND MESSAGE
-// URL backend Glitch Anda
+// Mendefinisikan URL backend
 const backendUrl = 'https://weddinginvitation.glitch.me/api/messages';
 
-// Fungsi untuk mengirim pesan
+// Fungsi untuk mengirim pesan ke backend
 async function sendMessage(message) {
-  const response = await fetch(backendUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ message }),
-  });
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(backendUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: message }), // Pastikan field 'message' diisi dengan benar
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error sending message:', error);
+    return { success: false, error: 'Failed to send message' };
+  }
 }
 
-// Fungsi untuk mengambil pesan
+// Fungsi untuk mengambil pesan dari backend
 async function getMessages() {
-  const response = await fetch(backendUrl);
-  const messages = await response.json();
-  return messages;
+  try {
+    const response = await fetch(backendUrl);
+    const messages = await response.json();
+    return messages;
+  } catch (error) {
+    console.error('Error getting messages:', error);
+    return [];
+  }
 }
 
-// Fungsi untuk menampilkan pesan di halaman web
+// Fungsi untuk menampilkan pesan di frontend
 function displayMessages(messages) {
   const messagesList = document.getElementById('messagesList');
   messagesList.innerHTML = '';
@@ -116,24 +126,33 @@ function displayMessages(messages) {
   });
 }
 
-// Event listener untuk form submit
+// Event listener saat form di-submit
 document.getElementById('messageForm').addEventListener('submit', async (event) => {
-  event.preventDefault();
+  event.preventDefault(); // Mencegah form dari submit default
   const messageInput = document.getElementById('messageInput');
-  const message = messageInput.value;
+  const message = messageInput.value.trim(); // Menghapus spasi di awal/akhir pesan
   if (message) {
-    await sendMessage(message);
-    messageInput.value = '';
-    const messages = await getMessages();
-    displayMessages(messages);
+    try {
+      await sendMessage(message);
+      messageInput.value = ''; // Mengosongkan input setelah mengirim pesan
+      const messages = await getMessages();
+      displayMessages(messages);
+    } catch (error) {
+      console.error('Error handling message:', error);
+    }
   }
 });
 
-// Memuat pesan saat halaman pertama kali dibuka
+// Saat halaman dimuat, ambil dan tampilkan pesan
 document.addEventListener('DOMContentLoaded', async () => {
-  const messages = await getMessages();
-  displayMessages(messages);
+  try {
+    const messages = await getMessages();
+    displayMessages(messages);
+  } catch (error) {
+    console.error('Error handling messages:', error);
+  }
 });
+
 // COPY BANK NUMBER
 function copyAccountDetails() {
     const accountDetails = document.querySelector('.bank-number').innerText;
