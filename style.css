@@ -315,6 +315,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:row;
     height: 100vh;
 }
 
