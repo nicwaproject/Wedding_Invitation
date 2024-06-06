@@ -80,42 +80,61 @@ function isInViewport(element) {
     );
 }
 
-// Function to add the float-in animation class to elements in the viewport
-function floatInSection() {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        if (isInViewport(section)) {
-            section.classList.add('float-in');
-        }
-    });
-}
-
-// Event listener for scroll event
-document.addEventListener('scroll', floatInSection);
-
-// Initial float-in animation for elements in viewport on page load
-floatInSection();
 
 // SEND MESSAGE
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('whatsappForm');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Replace "1234567890" with the couple's WhatsApp number
-        const whatsappNumber = "+6287860929667";
-        
-        // Get the message from the form
-        const message = encodeURIComponent(document.getElementById('message').value);
-        
-        // Construct the WhatsApp URL
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-        
-        // Open WhatsApp in a new tab
-        window.open(whatsappUrl, '_blank');
-    });
+// URL backend Glitch Anda
+const backendUrl = 'https://weddinginvitation.glitch.me/api/messages';
+
+// Fungsi untuk mengirim pesan
+async function sendMessage(message) {
+  const response = await fetch(backendUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message }),
+  });
+  const data = await response.json();
+  return data;
+}
+
+// Fungsi untuk mengambil pesan
+async function getMessages() {
+  const response = await fetch(backendUrl);
+  const messages = await response.json();
+  return messages;
+}
+
+// Fungsi untuk menampilkan pesan di halaman web
+function displayMessages(messages) {
+  const messagesList = document.getElementById('messagesList');
+  messagesList.innerHTML = '';
+  messages.forEach(message => {
+    const listItem = document.createElement('li');
+    listItem.textContent = message;
+    messagesList.appendChild(listItem);
+  });
+}
+
+// Event listener untuk form submit
+document.getElementById('messageForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const messageInput = document.getElementById('messageInput');
+  const message = messageInput.value;
+  if (message) {
+    await sendMessage(message);
+    messageInput.value = '';
+    const messages = await getMessages();
+    displayMessages(messages);
+  }
 });
 
+// Memuat pesan saat halaman pertama kali dibuka
+document.addEventListener('DOMContentLoaded', async () => {
+  const messages = await getMessages();
+  displayMessages(messages);
+});
+// COPY BANK NUMBER
 function copyAccountDetails() {
     const accountDetails = document.querySelector('.bank-number').innerText;
     navigator.clipboard.writeText(accountDetails)
